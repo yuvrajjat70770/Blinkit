@@ -16,10 +16,16 @@ import addressRouter from './route/address.route.js'
 import orderRouter from './route/order.route.js'
 
 const app = express()
+// CORS
+const allowedOrigins = [
+    'http://localhost:5173',
+  'https://blinkit-g34g-2v1pdap28-yuvrajchoudhary9001-7957s-projects.vercel.app',
+];
 app.use(cors({
-    credentials : true,
-    origin : process.env.FRONTEND_URL
-}))
+    origin: allowedOrigins,
+    origin : process.env.FRONTEND_URL,
+    credentials: true
+}));
 app.use(express.json())
 app.use(cookieParser())
 app.use(morgan())
